@@ -1,0 +1,15 @@
+# Node modules (installed libraries)
+node_modules/
+
+# Environment file (bot token and other secrets)
+.env
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Optional: ignore local backups (if you make separate backup files)
+backups/
