@@ -90,25 +90,7 @@ async function createWithdrawRequestDynamic(user, amount, paymentMethod) {
 }
 
 import fs from "fs"; // add this at the top
-
-async function saveDB() {
-    try {
-        // Always read first
-        await db.read();
-        db.data ||= { users: [], pendingPurchases: [], withdraws: [] };
-
-        // Write main db.json
-        await db.write();
-
-        // Backup db.json to backups folder with timestamp
-        const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
-        const backupPath = `backups/db_${timestamp}.json`;
-        fs.copyFileSync("db.json", backupPath);
-        console.log(`💾 Backup saved: ${backupPath}`);
-    } catch (err) {
-        console.error("❌ Failed to save database:", err);
-    }
-}
+import path from "path";
 
 import cron from "node-cron";
 
